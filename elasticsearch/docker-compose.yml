@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  es:
+    image: elasticsearch:7.16.3
+    container_name: elasticsearch
+    env_file:
+      - ./env/elasticsearch.env
+    volumes:
+      - ./volumes/elasticsearch/data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    restart: always
+  kibana:
+    image: kibana:7.16.3
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    restart: always
