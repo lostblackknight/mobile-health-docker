@@ -1,38 +1,57 @@
 # mobile-health-docker
 
-## 安装
-
-### 第一步
+## Docker image version
 
 ```
-git clone https://github.com/lostblackknight/mobile-health-docker.git
+$ docker pull nginx:1.21.6
+$ docker pull mysql:5.7
+$ docker pull redis:6
+$ docker pull nacos/nacos-server:v2.0.4
+$ docker pull nacos/nacos-mysql:8.0.16
+$ docker pull cike/sentinel-dashboard-docker:latest
+$ docker pull seataio/seata-server:1.4.2
+$ docker pull docker.elastic.co/elasticsearch/elasticsearch:7.16.3
+$ docker pull docker.elastic.co/kibana/kibana:7.16.3
 ```
 
-### 第二步
+## Install
+
+### First
 
 ```
-cd mobile-health-docker/nginx
-cd mobile-health-docker/nacos
-cd mobile-health-docker/sentinel-dashboard
-cd mobile-health-docker/seata-server
-cd mobile-health-docker/redis
+$ git clone https://github.com/lostblackknight/mobile-health-docker.git
 ```
 
-### 第三步
+### Second
 
 ```
-docker compose up -d
-docker compose up
+$ cd mobile-health-docker/elasticsearch
+$ cd mobile-health-docker/nacos
+$ cd mobile-health-docker/nginx
+$ cd mobile-health-docker/redis
+$ cd mobile-health-docker/seata-server
+$ cd mobile-health-docker/sentinel-dashboard
 ```
 
-### 第四步
+### Third
 
 ```
-docker ps
-docker ps -a
-docker images
-docker exec -it <container-id> /bin/bash
-docker cp <container-id>:/container/data /data
-docker rm -f <container-id>
-docker image rm <image-id>
+$ docker compose up -d
+$ docker compose up
+```
+
+- `-d` run the container in detached mode (in the background)
+
+## Docker command references
+
+```
+$ docker ps
+$ docker ps -a
+
+$ docker images
+$ docker image rm <image-id>
+
+$ docker rm -f <container-id>
+$ docker cp <container-id>:/container/path /your/path
+$ docker exec -it <container-id> /bin/bash
 ```
